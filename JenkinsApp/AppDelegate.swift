@@ -22,6 +22,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         splitViewController.delegate = self
         return true
     }
+    
+    // in AppDelegate.swift
+    
+    
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+        println("test123")
+        
+        println(userInfo!["value1"])
+        println(userInfo!["value2"])
+        
+        // pass back values to Apple Watch
+        var retValues = Dictionary<String,String>()
+        
+        retValues["retVal1"] = "return Test 1"
+        retValues["retVal2"] = "return Test 2"
+        
+        reply(retValues)
+
+    }
+    
+    /*func application(application: UIApplication!, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]!, reply: (([NSObject : AnyObject]!) -> Void)!) {
+        
+        //var sizzel = JenkinsTestClass()
+        //sizzel.Test()
+        
+        // retrieved parameters from Apple Watch
+        println(userInfo["value1"])
+        println(userInfo["value2"])
+        
+        // pass back values to Apple Watch
+        var retValues = Dictionary<String,String>()
+        
+        retValues["retVal1"] = "return Test 1"
+        retValues["retVal2"] = "return Test 2"
+        
+        reply(retValues)
+    }*/
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

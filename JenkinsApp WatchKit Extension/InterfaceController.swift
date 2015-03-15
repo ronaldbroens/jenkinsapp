@@ -1,0 +1,76 @@
+//
+//  InterfaceController.swift
+//  JenkinsApp WatchKit Extension
+//
+//  Created by Ronald Broens on 28/02/15.
+//  Copyright (c) 2015 Ronald Broens. All rights reserved.
+//
+
+import WatchKit
+import Foundation
+
+
+class InterfaceController: WKInterfaceController {
+
+    @IBOutlet weak var tbl_jobs: WKInterfaceTable!
+    override func awakeWithContext(context: AnyObject?) {
+        super.awakeWithContext(context)
+        
+        // Configure interface objects here.
+       //var sizzel = Tester()
+        //sizzel.DoTest()
+        
+        LoadDataFromIos()
+        SetupTable()
+    }
+    
+    func LoadDataFromIos()
+    {
+        // values to pass
+        let parentValues = [
+            "value1" : "Test 1",
+            "value2" : "Test 2"
+        ]
+        
+        WKInterfaceController.openParentApplication(parentValues, reply: { (replyValues, error) -> Void in
+            
+            if(replyValues != nil)
+            {
+                println(replyValues["retVal1"])
+                println(replyValues["retVal2"])
+            }
+        })
+    }
+    
+    func SetupTable()
+    {
+        var jobs = Array<String>();
+        jobs.append("Job 1")
+        jobs.append("JOb 2")
+        jobs.append("Job 3")
+        jobs.append("Another job")
+        jobs.append("Another job 2")
+        
+        tbl_jobs.setNumberOfRows(jobs.count, withRowType: "jobRow")
+        for (index, job) in enumerate(jobs) {
+            let theRow = self.tbl_jobs.rowControllerAtIndex(index) as JobRowController
+            theRow.lbl_job_title.setText(job)
+        }
+
+    }
+
+    override func willActivate() {
+        // This method is called when watch view controller is about to be visible to user
+        super.willActivate()
+    }
+
+    override func didDeactivate() {
+        // This method is called when watch view controller is no longer visible
+        super.didDeactivate()
+    }
+
+}
+
+class JobRowController: NSObject {
+    @IBOutlet weak var lbl_job_title: WKInterfaceLabel!
+}

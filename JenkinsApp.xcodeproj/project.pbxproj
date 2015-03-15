@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED6404761AA340C20017DEC8 /* Shared in Resources */ = {isa = PBXBuildFile; fileRef = ED6404751AA340C20017DEC8 /* Shared */; };
+		ED64047B1AA341ED0017DEC8 /* Shared in Resources */ = {isa = PBXBuildFile; fileRef = ED64047A1AA341ED0017DEC8 /* Shared */; };
+		ED64047D1AA3420F0017DEC8 /* Datamodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED64047C1AA3420F0017DEC8 /* Datamodel.swift */; };
 		ED7A2DFC1A8605E700F79193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7A2DFB1A8605E700F79193 /* AppDelegate.swift */; };
 		ED7A2DFE1A8605E700F79193 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7A2DFD1A8605E700F79193 /* MasterViewController.swift */; };
 		ED7A2E001A8605E700F79193 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7A2DFF1A8605E700F79193 /* DetailViewController.swift */; };
@@ -14,6 +17,17 @@
 		ED7A2E051A8605E700F79193 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED7A2E041A8605E700F79193 /* Images.xcassets */; };
 		ED7A2E081A8605E700F79193 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED7A2E061A8605E700F79193 /* LaunchScreen.xib */; };
 		ED7A2E141A8605E700F79193 /* JenkinsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7A2E131A8605E700F79193 /* JenkinsAppTests.swift */; };
+		ED7A2E1F1A861E2700F79193 /* JobsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7A2E1E1A861E2700F79193 /* JobsReader.swift */; };
+		ED8455ED1AB58604009946E9 /* Datamodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED64047C1AA3420F0017DEC8 /* Datamodel.swift */; };
+		ED94F9AA1A928B1F00CC2FB7 /* BuildsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94F9A91A928B1F00CC2FB7 /* BuildsDatasource.swift */; };
+		ED9761CC1AA1C1ED004F8E81 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9761CB1AA1C1ED004F8E81 /* InterfaceController.swift */; };
+		ED9761CE1AA1C1ED004F8E81 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9761CD1AA1C1ED004F8E81 /* NotificationController.swift */; };
+		ED9761D01AA1C1ED004F8E81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED9761CF1AA1C1ED004F8E81 /* Images.xcassets */; };
+		ED9761D41AA1C1ED004F8E81 /* JenkinsApp WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = ED9761D31AA1C1ED004F8E81 /* JenkinsApp WatchKit App.app */; };
+		ED9761DC1AA1C1ED004F8E81 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED9761DA1AA1C1ED004F8E81 /* Interface.storyboard */; };
+		ED9761DE1AA1C1ED004F8E81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED9761DD1AA1C1ED004F8E81 /* Images.xcassets */; };
+		ED9761E11AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ED9761C61AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EDC2B3AC1A87625C0030D335 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC2B3AB1A87625C0030D335 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,9 +38,40 @@
 			remoteGlobalIDString = ED7A2DF51A8605E700F79193;
 			remoteInfo = JenkinsApp;
 		};
+		ED9761D51AA1C1ED004F8E81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED7A2DEE1A8605E700F79193 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED9761D21AA1C1ED004F8E81;
+			remoteInfo = "JenkinsApp WatchKit App";
+		};
+		ED9761DF1AA1C1ED004F8E81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED7A2DEE1A8605E700F79193 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED9761C51AA1C1ED004F8E81;
+			remoteInfo = "JenkinsApp WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		ED9761E81AA1C1ED004F8E81 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				ED9761E11AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		ED6404751AA340C20017DEC8 /* Shared */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shared; sourceTree = SOURCE_ROOT; };
+		ED64047A1AA341ED0017DEC8 /* Shared */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shared; sourceTree = SOURCE_ROOT; };
+		ED64047C1AA3420F0017DEC8 /* Datamodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Datamodel.swift; path = Shared/Datamodel.swift; sourceTree = "<group>"; };
 		ED7A2DF61A8605E700F79193 /* JenkinsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JenkinsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED7A2DFA1A8605E700F79193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED7A2DFB1A8605E700F79193 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +83,19 @@
 		ED7A2E0D1A8605E700F79193 /* JenkinsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JenkinsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED7A2E121A8605E700F79193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED7A2E131A8605E700F79193 /* JenkinsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JenkinsAppTests.swift; sourceTree = "<group>"; };
+		ED7A2E1E1A861E2700F79193 /* JobsReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsReader.swift; sourceTree = "<group>"; };
+		ED94F9A91A928B1F00CC2FB7 /* BuildsDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildsDatasource.swift; sourceTree = "<group>"; };
+		ED9761C61AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "JenkinsApp WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED9761C91AA1C1ED004F8E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED9761CA1AA1C1ED004F8E81 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		ED9761CB1AA1C1ED004F8E81 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		ED9761CD1AA1C1ED004F8E81 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		ED9761CF1AA1C1ED004F8E81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ED9761D31AA1C1ED004F8E81 /* JenkinsApp WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JenkinsApp WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED9761D91AA1C1ED004F8E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED9761DB1AA1C1ED004F8E81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		ED9761DD1AA1C1ED004F8E81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EDC2B3AB1A87625C0030D335 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,14 +113,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED9761C31AA1C1ED004F8E81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		ED7A2DED1A8605E700F79193 = {
 			isa = PBXGroup;
 			children = (
+				ED64047C1AA3420F0017DEC8 /* Datamodel.swift */,
 				ED7A2DF81A8605E700F79193 /* JenkinsApp */,
 				ED7A2E101A8605E700F79193 /* JenkinsAppTests */,
+				ED9761C71AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension */,
+				ED9761D71AA1C1ED004F8E81 /* JenkinsApp WatchKit App */,
 				ED7A2DF71A8605E700F79193 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +140,8 @@
 			children = (
 				ED7A2DF61A8605E700F79193 /* JenkinsApp.app */,
 				ED7A2E0D1A8605E700F79193 /* JenkinsAppTests.xctest */,
+				ED9761C61AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension.appex */,
+				ED9761D31AA1C1ED004F8E81 /* JenkinsApp WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +149,8 @@
 		ED7A2DF81A8605E700F79193 /* JenkinsApp */ = {
 			isa = PBXGroup;
 			children = (
+				ED6404751AA340C20017DEC8 /* Shared */,
+				ED7A2E1D1A861DEF00F79193 /* JenkinsApi */,
 				ED7A2DFB1A8605E700F79193 /* AppDelegate.swift */,
 				ED7A2DFD1A8605E700F79193 /* MasterViewController.swift */,
 				ED7A2DFF1A8605E700F79193 /* DetailViewController.swift */,
@@ -86,6 +158,8 @@
 				ED7A2E041A8605E700F79193 /* Images.xcassets */,
 				ED7A2E061A8605E700F79193 /* LaunchScreen.xib */,
 				ED7A2DF91A8605E700F79193 /* Supporting Files */,
+				EDC2B3AB1A87625C0030D335 /* SettingsViewController.swift */,
+				ED94F9A91A928B1F00CC2FB7 /* BuildsDatasource.swift */,
 			);
 			path = JenkinsApp;
 			sourceTree = "<group>";
@@ -115,6 +189,53 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		ED7A2E1D1A861DEF00F79193 /* JenkinsApi */ = {
+			isa = PBXGroup;
+			children = (
+				ED7A2E1E1A861E2700F79193 /* JobsReader.swift */,
+			);
+			name = JenkinsApi;
+			sourceTree = "<group>";
+		};
+		ED9761C71AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ED64047A1AA341ED0017DEC8 /* Shared */,
+				ED9761CB1AA1C1ED004F8E81 /* InterfaceController.swift */,
+				ED9761CD1AA1C1ED004F8E81 /* NotificationController.swift */,
+				ED9761CF1AA1C1ED004F8E81 /* Images.xcassets */,
+				ED9761C81AA1C1ED004F8E81 /* Supporting Files */,
+			);
+			path = "JenkinsApp WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		ED9761C81AA1C1ED004F8E81 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED9761C91AA1C1ED004F8E81 /* Info.plist */,
+				ED9761CA1AA1C1ED004F8E81 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED9761D71AA1C1ED004F8E81 /* JenkinsApp WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				ED9761DA1AA1C1ED004F8E81 /* Interface.storyboard */,
+				ED9761DD1AA1C1ED004F8E81 /* Images.xcassets */,
+				ED9761D81AA1C1ED004F8E81 /* Supporting Files */,
+			);
+			path = "JenkinsApp WatchKit App";
+			sourceTree = "<group>";
+		};
+		ED9761D81AA1C1ED004F8E81 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED9761D91AA1C1ED004F8E81 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,10 +246,12 @@
 				ED7A2DF21A8605E700F79193 /* Sources */,
 				ED7A2DF31A8605E700F79193 /* Frameworks */,
 				ED7A2DF41A8605E700F79193 /* Resources */,
+				ED9761E81AA1C1ED004F8E81 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				ED9761E01AA1C1ED004F8E81 /* PBXTargetDependency */,
 			);
 			name = JenkinsApp;
 			productName = JenkinsApp;
@@ -153,6 +276,39 @@
 			productReference = ED7A2E0D1A8605E700F79193 /* JenkinsAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		ED9761C51AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED9761E71AA1C1ED004F8E81 /* Build configuration list for PBXNativeTarget "JenkinsApp WatchKit Extension" */;
+			buildPhases = (
+				ED9761C21AA1C1ED004F8E81 /* Sources */,
+				ED9761C31AA1C1ED004F8E81 /* Frameworks */,
+				ED9761C41AA1C1ED004F8E81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED9761D61AA1C1ED004F8E81 /* PBXTargetDependency */,
+			);
+			name = "JenkinsApp WatchKit Extension";
+			productName = "JenkinsApp WatchKit Extension";
+			productReference = ED9761C61AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		ED9761D21AA1C1ED004F8E81 /* JenkinsApp WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED9761E61AA1C1ED004F8E81 /* Build configuration list for PBXNativeTarget "JenkinsApp WatchKit App" */;
+			buildPhases = (
+				ED9761D11AA1C1ED004F8E81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JenkinsApp WatchKit App";
+			productName = "JenkinsApp WatchKit App";
+			productReference = ED9761D31AA1C1ED004F8E81 /* JenkinsApp WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -168,6 +324,12 @@
 					ED7A2E0C1A8605E700F79193 = {
 						CreatedOnToolsVersion = 6.1.1;
 						TestTargetID = ED7A2DF51A8605E700F79193;
+					};
+					ED9761C51AA1C1ED004F8E81 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					ED9761D21AA1C1ED004F8E81 = {
+						CreatedOnToolsVersion = 6.3;
 					};
 				};
 			};
@@ -186,6 +348,8 @@
 			targets = (
 				ED7A2DF51A8605E700F79193 /* JenkinsApp */,
 				ED7A2E0C1A8605E700F79193 /* JenkinsAppTests */,
+				ED9761C51AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension */,
+				ED9761D21AA1C1ED004F8E81 /* JenkinsApp WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -196,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED7A2E031A8605E700F79193 /* Main.storyboard in Resources */,
+				ED6404761AA340C20017DEC8 /* Shared in Resources */,
 				ED7A2E081A8605E700F79193 /* LaunchScreen.xib in Resources */,
 				ED7A2E051A8605E700F79193 /* Images.xcassets in Resources */,
 			);
@@ -208,6 +373,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED9761C41AA1C1ED004F8E81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED9761D01AA1C1ED004F8E81 /* Images.xcassets in Resources */,
+				ED9761D41AA1C1ED004F8E81 /* JenkinsApp WatchKit App.app in Resources */,
+				ED64047B1AA341ED0017DEC8 /* Shared in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED9761D11AA1C1ED004F8E81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED9761DC1AA1C1ED004F8E81 /* Interface.storyboard in Resources */,
+				ED9761DE1AA1C1ED004F8E81 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -215,9 +399,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8455ED1AB58604009946E9 /* Datamodel.swift in Sources */,
+				ED7A2E1F1A861E2700F79193 /* JobsReader.swift in Sources */,
 				ED7A2E001A8605E700F79193 /* DetailViewController.swift in Sources */,
+				ED94F9AA1A928B1F00CC2FB7 /* BuildsDatasource.swift in Sources */,
 				ED7A2DFE1A8605E700F79193 /* MasterViewController.swift in Sources */,
 				ED7A2DFC1A8605E700F79193 /* AppDelegate.swift in Sources */,
+				EDC2B3AC1A87625C0030D335 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +417,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED9761C21AA1C1ED004F8E81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED64047D1AA3420F0017DEC8 /* Datamodel.swift in Sources */,
+				ED9761CE1AA1C1ED004F8E81 /* NotificationController.swift in Sources */,
+				ED9761CC1AA1C1ED004F8E81 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -236,6 +434,16 @@
 			isa = PBXTargetDependency;
 			target = ED7A2DF51A8605E700F79193 /* JenkinsApp */;
 			targetProxy = ED7A2E0E1A8605E700F79193 /* PBXContainerItemProxy */;
+		};
+		ED9761D61AA1C1ED004F8E81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED9761D21AA1C1ED004F8E81 /* JenkinsApp WatchKit App */;
+			targetProxy = ED9761D51AA1C1ED004F8E81 /* PBXContainerItemProxy */;
+		};
+		ED9761E01AA1C1ED004F8E81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED9761C51AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension */;
+			targetProxy = ED9761DF1AA1C1ED004F8E81 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -254,6 +462,14 @@
 				ED7A2E071A8605E700F79193 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		ED9761DA1AA1C1ED004F8E81 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED9761DB1AA1C1ED004F8E81 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -342,9 +558,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = JenkinsApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos8.2;
 			};
 			name = Debug;
 		};
@@ -352,9 +571,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = JenkinsApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos8.2;
 			};
 			name = Release;
 		};
@@ -392,6 +614,74 @@
 			};
 			name = Release;
 		};
+		ED9761E21AA1C1ED004F8E81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "JenkinsApp WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		ED9761E31AA1C1ED004F8E81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "JenkinsApp WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		ED9761E41AA1C1ED004F8E81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = JenkinsApp_WatchKit_Extension;
+				INFOPLIST_FILE = "JenkinsApp WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		ED9761E51AA1C1ED004F8E81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = JenkinsApp_WatchKit_Extension;
+				INFOPLIST_FILE = "JenkinsApp WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -411,6 +701,7 @@
 				ED7A2E191A8605E700F79193 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED7A2E1A1A8605E700F79193 /* Build configuration list for PBXNativeTarget "JenkinsAppTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +710,25 @@
 				ED7A2E1C1A8605E700F79193 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED9761E61AA1C1ED004F8E81 /* Build configuration list for PBXNativeTarget "JenkinsApp WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED9761E41AA1C1ED004F8E81 /* Debug */,
+				ED9761E51AA1C1ED004F8E81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED9761E71AA1C1ED004F8E81 /* Build configuration list for PBXNativeTarget "JenkinsApp WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED9761E21AA1C1ED004F8E81 /* Debug */,
+				ED9761E31AA1C1ED004F8E81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
