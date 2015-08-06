@@ -12,6 +12,8 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
 
+    var jobs = Dictionary<String,String>()
+    
     @IBOutlet weak var tbl_jobs: WKInterfaceTable!
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -21,7 +23,7 @@ class InterfaceController: WKInterfaceController {
         //sizzel.DoTest()
         
         LoadDataFromIos()
-        SetupTable()
+        
     }
     
     func LoadDataFromIos()
@@ -33,28 +35,28 @@ class InterfaceController: WKInterfaceController {
         ]
         
         WKInterfaceController.openParentApplication(parentValues, reply: { (replyValues, error) -> Void in
+            let response = replyValues as! Dictionary<String,String>
+            self.jobs = response
+            self.SetupTable()
             
-            if(replyValues != nil)
-            {
-                println(replyValues["retVal1"])
-                println(replyValues["retVal2"])
-            }
         })
     }
     
     func SetupTable()
     {
-        var jobs = Array<String>();
+        /*var jobs = Array<String>();
         jobs.append("Job 1")
         jobs.append("JOb 2")
         jobs.append("Job 3")
         jobs.append("Another job")
-        jobs.append("Another job 2")
+        jobs.append("Another job 2")*/
         
         tbl_jobs.setNumberOfRows(jobs.count, withRowType: "jobRow")
-        for (index, job) in enumerate(jobs) {
-            let theRow = self.tbl_jobs.rowControllerAtIndex(index) as JobRowController
-            theRow.lbl_job_title.setText(job)
+        var index = 0;
+        for (jobname, url) in Array(jobs).sort({$0.0 < $1.0}) {
+            let theRow = self.tbl_jobs.rowControllerAtIndex(index) as! JobRowController
+            theRow.lbl_job_title.setText(jobname)
+            index++
         }
 
     }

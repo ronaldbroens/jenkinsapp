@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct JenkinsJob
+struct JenkinsJob
 {
     var Name : String
     var Url : String

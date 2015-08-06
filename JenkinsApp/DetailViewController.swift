@@ -19,10 +19,10 @@ class DetailViewController: UIViewController, UITableViewDelegate {
 
     @IBAction func BtnBuildClick(sender: UIButton)
     {
-        println("Must build the job with name: "+self.detailItem!.Name)
-        println("Must build the job with url: "+self.detailItem!.Url)
+        print("Must build the job with name: "+self.detailItem!.Name)
+        print("Must build the job with url: "+self.detailItem!.Url)
         
-        var jenkinsReader = JobsReader()
+        let jenkinsReader = JobsReader()
         jenkinsReader.StartJobs(self.detailItem!.Url)
     }
     
@@ -54,14 +54,14 @@ class DetailViewController: UIViewController, UITableViewDelegate {
     
     func PullJobDetails()
     {
-        var jenkinsReader = JobsReader()
+        let jenkinsReader = JobsReader()
         jenkinsReader.GetJobDetails(self.detailItem!.Url, detailhandler: self.JobDetailsLoaded)
     }
     
     func JobDetailsLoaded(details : JenkinsDetailInfo)
     {
-        println("Details loaded")
-        var jenkinsReader = JobsReader()
+        print("Details loaded")
+        let jenkinsReader = JobsReader()
         jenkinsReader.GetBuildDetails(details.LastBuild.Url, detailhandler: self.JobBuildLoaded)
     }
     
@@ -77,18 +77,18 @@ class DetailViewController: UIViewController, UITableViewDelegate {
                 self.tv_builds.reloadData()
         }*/
         
-        println("BuildInfo loaded");
+        print("BuildInfo loaded");
         
         let dateFormatter = NSDateFormatter()//3
         
-        var theDateFormat = NSDateFormatterStyle.ShortStyle //5
+        let theDateFormat = NSDateFormatterStyle.ShortStyle //5
         let theTimeFormat = NSDateFormatterStyle.MediumStyle//6
         
         dateFormatter.dateStyle = theDateFormat//8
         dateFormatter.timeStyle = theTimeFormat//9
         
-        println("Build started at: " + dateFormatter.stringFromDate(details.StartTime))//11
-        println("Expected finisch at: " + dateFormatter.stringFromDate(details.ExpectedEndTime))//11
+        print("Build started at: " + dateFormatter.stringFromDate(details.StartTime))//11
+        print("Expected finisch at: " + dateFormatter.stringFromDate(details.ExpectedEndTime))//11
 
         
         
@@ -101,26 +101,26 @@ class DetailViewController: UIViewController, UITableViewDelegate {
             return
         }
         
-        var timeDifg = NSDate().timeIntervalSinceDate(details.StartTime)
-        println("timedif: \(timeDifg)")
+        let timeDifg = NSDate().timeIntervalSinceDate(details.StartTime)
+        print("timedif: \(timeDifg)")
         
         
-        var totalTimeDone = Float(NSDate().timeIntervalSince1970 - details.StartTime.timeIntervalSince1970);
-        println("TotaltimeDOne \(totalTimeDone)")
+        let totalTimeDone = Float(NSDate().timeIntervalSince1970 - details.StartTime.timeIntervalSince1970);
+        print("TotaltimeDOne \(totalTimeDone)")
         
-        var duration = Float(details.EstimatedDuration)
-        var percentage : Float = (totalTimeDone / duration)
+        let duration = Float(details.EstimatedDuration)
+        let percentage : Float = (totalTimeDone / duration)
         
-        println("Percentage = \(percentage)");
+        print("Percentage = \(percentage)");
         
         //percentage = Math.round(percentage * 100.0) / 100.0;
         
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: details.StartTime)
+        let components = calendar.components([.Hour, .Minute], fromDate: details.StartTime)
         let hour = components.hour
         let minutes = components.minute
         
-        println("Build starten on: " + String(hour) + ":" + String(minutes));
+        print("Build starten on: " + String(hour) + ":" + String(minutes));
         
         dispatch_async(dispatch_get_main_queue())
             {

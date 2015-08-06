@@ -17,38 +17,36 @@ class JobsReader
         var settings = JenkinsSettings()
         
         let url = NSURL(string: settings.Url + "/api/json")!
-        println(settings.Url + "/api/json");
+        print(settings.Url + "/api/json");
         
         let urlSession = NSURLSession.sharedSession()
         
         //2
         let jsonQuery = urlSession.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
             if (error != nil) {
-                println(error.localizedDescription)
+                print(error!.localizedDescription)
                 return
             }
             
-            println("Data received");
+            print("Data received");
             var err: NSError?
             
             // 3
-            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary?
-            if (err != nil) {
-                println("JSON Error \(err!.localizedDescription)")
-            }
+            do{
+            var jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
             
-            if(jsonResult != nil)
-            {
-                println("Data " + (jsonResult!["nodeDescription"] as String))
+            
+            
+                print("Data " + (jsonResult["nodeDescription"] as! String))
                 
-                var jobs = jsonResult!["jobs"] as NSArray
+                var jobs = jsonResult["jobs"] as! NSArray
                 for(var i = 0; i < jobs.count; i++)
                 {
-                    var job = jobs[i] as NSDictionary
+                    var job = jobs[i] as! NSDictionary
                     
-                    var name = job["name"] as String
-                    var url = job["url"] as String
-                    var color = job["color"] as String
+                    var name = job["name"] as! String
+                    var url = job["url"] as! String
+                    var color = job["color"] as! String
                     //url color
                     
                     var jobObject = JenkinsJob(Name: name, Url: url, Color: color)
@@ -60,6 +58,9 @@ class JobsReader
                 }
                 jobshandler(results);
                 
+            
+            }catch{
+                print("Error")
             }
         })
         
@@ -69,36 +70,36 @@ class JobsReader
     func GetJobDetails(joburl: String, detailhandler : JenkinsDetailInfo -> Void)
     {
         var buildjoburl = joburl + "api/json";
-        println("Will call to get job details " + buildjoburl)
+        print("Will call to get job details " + buildjoburl)
         let urlSession = NSURLSession.sharedSession()
         let url = NSURL(string: buildjoburl)!
         
         let jsonQuery = urlSession.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
             if (error != nil) {
-                println(error.localizedDescription)
+                print(error!.localizedDescription)
                 return
             }
             
-            println("Data received");
+            print("Data received");
             var err: NSError?
             
             // 3
-            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary?
+            do {
+            var jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
             if (err != nil) {
-                println("JSON Error \(err!.localizedDescription)")
+                print("JSON Error \(err!.localizedDescription)")
             }
             
-            if(jsonResult != nil)
-            {
-                var color = (jsonResult!["color"] as String)
-                println("Color " + color)
+          
+                var color = (jsonResult["color"] as! String)
+                print("Color " + color)
                 
-                var lastBuildObject = jsonResult!["lastBuild"] as NSDictionary
-                var buildnumer = lastBuildObject["number"] as Int
-                println("Last build buildnumer: " + String(buildnumer))
+                var lastBuildObject = jsonResult["lastBuild"] as! NSDictionary
+                var buildnumer = lastBuildObject["number"] as! Int
+                print("Last build buildnumer: " + String(buildnumer))
                 
-                var buildUrl = lastBuildObject["url"] as String
-                println("Last build url: " + buildUrl)
+                var buildUrl = lastBuildObject["url"] as! String
+                print("Last build url: " + buildUrl)
                 
                 var lastBuild = JenkinsBuildReference(Url: buildUrl, Number: buildnumer)
                 var builds = Array<JenkinsBuildReference>()
@@ -106,7 +107,10 @@ class JobsReader
                 // lastBuild
                 var result = JenkinsDetailInfo(LastBuild: lastBuild, Color: color, Builds: builds)
                 detailhandler(result)
+            }catch{
+                print("error parsing json")
             }
+            
         
     })
     
@@ -118,43 +122,46 @@ class JobsReader
     func GetBuildDetails(buildurl: String, detailhandler : JenkinsBuild -> Void)
     {
         var buildjoburl = buildurl + "api/json";
-        println("Will call to get build details " + buildjoburl)
+        print("Will call to get build details " + buildjoburl)
         let urlSession = NSURLSession.sharedSession()
         let url = NSURL(string: buildjoburl)!
         
         let jsonQuery = urlSession.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
             if (error != nil) {
-                println(error.localizedDescription)
+                print(error!.localizedDescription)
                 return
             }
             
-            println("Data received");
+            print("Data received");
             var err: NSError?
             
             // 3
-            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary?
-            if (err != nil) {
-                println("JSON Error \(err!.localizedDescription)")
-            }
+            do{
+                var jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                if (err != nil) {
+                    print("JSON Error \(err!.localizedDescription)")
+                }
             
-            if(jsonResult != nil)
-            {
-                var building = (jsonResult!["building"] as Bool)
-                var fullDisplayName = (jsonResult!["fullDisplayName"] as String)
-                var estimatedDuration = (jsonResult!["estimatedDuration"] as Int)
-                var timestamp = (jsonResult!["timestamp"] as NSNumber).longLongValue
+                
+                    var building = (jsonResult["building"] as! Bool)
+                    var fullDisplayName = (jsonResult["fullDisplayName"] as! String)
+                    var estimatedDuration = (jsonResult["estimatedDuration"] as! Int)
+                    var timestamp = (jsonResult["timestamp"] as! NSNumber).longLongValue
                 
                // println("TImestamp: \(timestamp)")
-                var unixTimestamp = timestamp / 1000;
+                    var unixTimestamp = timestamp / 1000;
                 //println("Unixt timestamp \(unixTimestamp)")
                 
-               var startTime = NSDate(timeIntervalSince1970: NSTimeInterval(unixTimestamp))
-                var expectedEndTime = NSDate(timeIntervalSince1970: NSTimeInterval(unixTimestamp + (estimatedDuration/1000)))
-                var durationInSeconds : Int = Int(expectedEndTime.timeIntervalSinceDate(startTime))
+                    var startTime = NSDate(timeIntervalSince1970: NSTimeInterval(unixTimestamp))
+                    var expectedEndTime = NSDate(timeIntervalSince1970: NSTimeInterval(unixTimestamp + (estimatedDuration/1000)))
+                    var durationInSeconds : Int = Int(expectedEndTime.timeIntervalSinceDate(startTime))
 
 
-                var result = JenkinsBuild(Building: building, FullDisplayName: fullDisplayName, Duration: estimatedDuration, EstimatedDuration: durationInSeconds, StartTime : startTime, ExpectedEndTime : expectedEndTime)
-                detailhandler(result);
+                    var result = JenkinsBuild(Building: building, FullDisplayName: fullDisplayName, Duration: estimatedDuration, EstimatedDuration: durationInSeconds, StartTime : startTime, ExpectedEndTime : expectedEndTime)
+                    detailhandler(result);
+                
+            }catch{
+                print("Error at json parse");
             }
         })
         
@@ -164,34 +171,34 @@ class JobsReader
     
     func StartJobs( joburl: String)
     {
-        var buildjoburl = joburl + "build";
-        println("Will call to start job " + buildjoburl)
+        let buildjoburl = joburl + "build";
+        print("Will call to start job " + buildjoburl)
         let urlSession = NSURLSession.sharedSession()
         
-        var url = NSURL(string: buildjoburl)
+        let url = NSURL(string: buildjoburl)
         
-        var request = NSMutableURLRequest(URL: url!)
+        let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
         
         // set up the base64-encoded credentials
         let settings = JenkinsSettings()
         let loginString = NSString(format: "%@:%@", settings.Username, settings.Password)
         let loginData: NSData? = loginString.dataUsingEncoding(NSUTF8StringEncoding)
-        let base64LoginString = loginData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(0))
+        let base64LoginString = loginData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
 
         let jsonQuery = urlSession.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
             if (error != nil) {
-                println(error.localizedDescription)
+                print(error!.localizedDescription)
                 return
             }
             
-            let status = (response as NSHTTPURLResponse).statusCode
-            println("status code is \(status)")
+            let status = (response as! NSHTTPURLResponse).statusCode
+            print("status code is \(status)")
             
-            var responseText = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println(responseText)
+            let responseText = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(responseText)
         })
         
         jsonQuery.resume()

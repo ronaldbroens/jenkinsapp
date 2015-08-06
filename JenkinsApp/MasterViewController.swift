@@ -39,19 +39,19 @@ class MasterViewController: UITableViewController {
         
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
+            self.detailViewController = controllers[controllers.count-1].parentViewController as? DetailViewController
         }
     }
     
     func GotoSettings()
     {
-        println("Goto setting")
+        print("Goto setting")
         self.performSegueWithIdentifier("settings", sender: self)
     }
     
     func JobsLoaded(jobs : Array<JenkinsJob>)
     {
-        println("Jobs loaded");
+        print("Jobs loaded");
         self.jenkinsJobs = jobs;
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
@@ -80,9 +80,9 @@ class MasterViewController: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = jenkinsJobs[indexPath.row]
-                let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true

@@ -14,7 +14,7 @@ class SettingsViewController : UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var settings = JenkinsSettings()
+        let settings = JenkinsSettings()
         textboxUrl.text = settings.Url
         textboxUsername.text = settings.Username
         textboxPassword.text = settings.Password
@@ -23,11 +23,12 @@ class SettingsViewController : UIViewController
     
     @IBAction func BtnSaveClick(sender: UIButton)
     {
-        var settings = JenkinsSettings()
-        settings.Url = self.textboxUrl.text
-        settings.Username = self.textboxUsername.text
-        settings.Password = self.textboxPassword.text
+        let settings = JenkinsSettings()
+        settings.Url = self.textboxUrl.text!
+        settings.Username = self.textboxUsername.text!
+        settings.Password = self.textboxPassword.text!
         settings.Save()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBOutlet weak var textboxUrl: UITextField!
     @IBOutlet weak var textboxUsername: UITextField!
@@ -43,11 +44,11 @@ class JenkinsSettings
     
     init()
     {
-        var defaultSettings = NSUserDefaults.standardUserDefaults()
+        let defaultSettings = NSUserDefaults.standardUserDefaults()
         
-        var url = defaultSettings.valueForKey("jenkinsurl") as String?
-        var username = defaultSettings.valueForKey("username") as String?
-        var password = defaultSettings.valueForKey("password") as String?
+        let url = defaultSettings.valueForKey("jenkinsurl") as! String?
+        let username = defaultSettings.valueForKey("username") as! String?
+        let password = defaultSettings.valueForKey("password") as! String?
         
         self.Url = url != nil ? url! : ""
         self.Username = username != nil ? username! : ""
@@ -56,7 +57,7 @@ class JenkinsSettings
     
     func Save()
     {
-        var defaultSettings = NSUserDefaults.standardUserDefaults()
+        let defaultSettings = NSUserDefaults.standardUserDefaults()
         
         defaultSettings.setValue(self.Url, forKey: "jenkinsurl")
         defaultSettings.setValue(self.Username, forKey: "username")
