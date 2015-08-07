@@ -1,4 +1,4 @@
 language: objective-c  # swift is not yet available
 
 xcode_project: JenkinsApp.xcodeproj
-
+xcode_scheme: JenkinsAppTests
