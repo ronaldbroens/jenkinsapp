@@ -8,3 +8,5 @@ For now it is only a experiment and not very stable, but the goal is to build a 
 If your are a swift developer or you want learn, please send me message and contribute!
 
 Ronald Broens
+
+[![Build Status](https://travis-ci.org/windelbouwman/jenkinsapp.svg?branch=master)](https://travis-ci.org/windelbouwman/jenkinsapp)
