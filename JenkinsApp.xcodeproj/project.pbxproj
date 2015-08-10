@@ -659,7 +659,7 @@
 				);
 				IBSC_MODULE = JenkinsApp_WatchKit_Extension;
 				INFOPLIST_FILE = "JenkinsApp WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -676,7 +676,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = JenkinsApp_WatchKit_Extension;
 				INFOPLIST_FILE = "JenkinsApp WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
