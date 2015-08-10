@@ -9,4 +9,4 @@ If your are a swift developer or you want learn, please send me message and cont
 
 Ronald Broens
 
-[![Build Status](https://travis-ci.org/ronaldbroens/jenkinsapp.svg?branch=master)](https://travis-ci.org/ronaldbroens/jenkinsapp)
+[![Build Status](https://www.bitrise.io/app/5c1cc91f2f46ffb5.svg?token=LSYyRVTRnMGvHFDVWiAXWA)](https://www.bitrise.io/app/5c1cc91f2f46ffb5)
