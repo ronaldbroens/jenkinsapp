@@ -28,6 +28,7 @@
 		ED9761DE1AA1C1ED004F8E81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED9761DD1AA1C1ED004F8E81 /* Images.xcassets */; };
 		ED9761E11AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ED9761C61AA1C1ED004F8E81 /* JenkinsApp WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EDC2B3AC1A87625C0030D335 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC2B3AB1A87625C0030D335 /* SettingsViewController.swift */; };
+		EDD01D5C1B79F12B006753FE /* JobsOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD01D5B1B79F12B006753FE /* JobsOverviewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		ED9761DB1AA1C1ED004F8E81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		ED9761DD1AA1C1ED004F8E81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EDC2B3AB1A87625C0030D335 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EDD01D5B1B79F12B006753FE /* JobsOverviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsOverviewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				ED7A2DF91A8605E700F79193 /* Supporting Files */,
 				EDC2B3AB1A87625C0030D335 /* SettingsViewController.swift */,
 				ED94F9A91A928B1F00CC2FB7 /* BuildsDatasource.swift */,
+				EDD01D5B1B79F12B006753FE /* JobsOverviewCell.swift */,
 			);
 			path = JenkinsApp;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				ED94F9AA1A928B1F00CC2FB7 /* BuildsDatasource.swift in Sources */,
 				ED7A2DFE1A8605E700F79193 /* MasterViewController.swift in Sources */,
 				ED7A2DFC1A8605E700F79193 /* AppDelegate.swift in Sources */,
+				EDD01D5C1B79F12B006753FE /* JobsOverviewCell.swift in Sources */,
 				EDC2B3AC1A87625C0030D335 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

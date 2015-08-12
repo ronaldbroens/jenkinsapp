@@ -8,9 +8,11 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UIViewController, UITableViewDataSource{
 
     var detailViewController: DetailViewController? = nil
+    
+    @IBOutlet weak var jobsTableview: UITableView!
     //var objects = NSMutableArray()
     var jenkinsJobs : Array<JenkinsJob> = Array<JenkinsJob>()
 
@@ -18,7 +20,7 @@ class MasterViewController: UITableViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            self.clearsSelectionOnViewWillAppear = false
+           // self.jobsTableview.clearsSelectionOnViewWillAppear = false
             self.preferredContentSize = CGSize(width: 320.0, height: 600.0)
         }
     }
@@ -36,6 +38,8 @@ class MasterViewController: UITableViewController {
         //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         var settingsButton = UIBarButtonItem(title: "Settings", style: .Plain, target: self, action:"GotoSettings")
         self.navigationItem.rightBarButtonItem = settingsButton
+        
+        //self.jobsTableview.registerClass(JobsOverviewCell.self, forCellReuseIdentifier: "jobs_overview_cell")
         
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -58,7 +62,7 @@ class MasterViewController: UITableViewController {
         dispatch_async(dispatch_get_main_queue())
             {
                 // update some UI
-                self.tableView.reloadData()
+                self.jobsTableview.reloadData()
             }
         
         
@@ -73,16 +77,16 @@ class MasterViewController: UITableViewController {
     func insertNewObject(sender: AnyObject) {
         //objects.insertObject(NSDate(), atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        self.jobsTableview.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
 
     // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
+            if let indexPath = self.jobsTableview.indexPathForSelectedRow {
                 let object = jenkinsJobs[indexPath.row]
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+                let controller = segue.destinationViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
@@ -92,39 +96,50 @@ class MasterViewController: UITableViewController {
 
     // MARK: - Table View
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return jenkinsJobs.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("jobs_overview_cell", forIndexPath: indexPath) as! JobsOverviewCell
+        
+        if (indexPath.row % 2 == 0) {
+            cell.contentView.backgroundColor = UIColor(red: 221/255, green: 221/255, blue: 221/255, alpha: 1)
+        }else {
+            cell.contentView.backgroundColor = UIColor.clearColor()
+        }
 
         let job = jenkinsJobs[indexPath.row]
-        cell.textLabel!.text = job.Name
+        cell.buildnameLabel.text = job.Name
+        
+        cell.statusLabel.layer.masksToBounds = true
+        cell.statusLabel.layer.cornerRadius = 8;
         
         if(job.Color == "red")
         {
-            cell.contentView.backgroundColor = UIColor.redColor()
+            cell.statusLabel.backgroundColor = UIColor.redColor()
+            cell.statusLabel.text = "FAIL" //todo resource files
         }
         
         if(job.Color == "blue")
         {
-            cell.contentView.backgroundColor = UIColor.greenColor()
+            cell.statusLabel.backgroundColor = UIColor.greenColor()
+            cell.statusLabel.text = "OK"
         }
 
         return cell
     }
 
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return false
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             //jenkinsJobs.removeObjectAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
